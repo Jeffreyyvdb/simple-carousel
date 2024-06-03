@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
   <head>
@@ -6,17 +6,62 @@
     <title>&lt;my-element> Demo</title>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script>
-    <script type="module" src="../my-element.js"></script>
+    <script type="module" src="../simple-carousel.js"></script>
     <style>
-      p {
-        border: solid 1px blue;
-        padding: 8px;
+      :root {
+        background-color: #f4f4f4;
+        font-family: Arial, serif;
+      }
+
+      body {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+      }
+
+      simple-carousel {
+        width: 50vw;
+        max-width: 600px;
+
+        --shadow: #293198;
+        --highlight: #ceffff;
+      }
+
+      simple-carousel img {
+        width: 100%;
+        height: auto;
+      }
+
+      /*
+      Hide the simple-carousel element until it is defined, preventing a flash
+      of unstyled content.
+      */
+      simple-carousel:not(:defined) > * {
+        display: none;
       }
     </style>
   </head>
   <body>
-    <my-element>
-      <p>This is child content</p>
-    </my-element>
+    <simple-carousel>
+      <h1>One of these!</h1>
+      <b>&lt;simple-carousel></b>
+      <pre>
+        <code>
+          &lt;h1>One of these!&lt;h1>
+          &lt;div>&lt;/div>
+          &lt;p>It's just HTML!&lt;/p>
+          &lt;h1>Like this!&lt;h1>
+          <b>&lt;/simple-carousel></b>
+        </code>
+      </pre>
+      <h1>Web Animations API</h1>
+      <h1>By the way, if you've never heard of Lit</h1>
+      <h1>the first episode gives an intro.</h1>
+      <h1>It should be pinned in the comments.</h1>
+      <h1>This is scripted?</h1>
+    </simple-carousel>
   </body>
 </html>
